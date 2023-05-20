@@ -1,6 +1,8 @@
 If you want to run the project go to [Deployment](docs/Deployment.md). More details about what the game does are in [Game Mechanics](docs/GameMechanics.md).
 
-```Smart contracts have been deployed on the zkEVM Testnet.
+```
+
+Smart contracts have been deployed on the zkEVM Testnet.
 
 SVG deployed to: 0x9b93BBBA15bcb2094AED645774D7E3aFCF74f340
 FLIP deployed to: 0xF3f6a994b982f7F5E67fDc0ef5ad248D7fFa6E7e
