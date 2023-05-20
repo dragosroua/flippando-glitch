@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useDrag, useDrop } from 'react-dnd';
 import SmallTile from '../components/SmallTile';
 import Grey from './assets/squares/grey.svg';
+import Image from 'next/image';
+import artNFT from './assets/artNFT.jpg';
 import {
   flippandoAddress,
   flippandoBundlerAddress
@@ -248,7 +250,7 @@ export default function MyAssets() {
 
   return (
     <div>
-      
+      <div className='flex justify-center' style={{marginBottom: 20}}>
       <div style={{ display: 'inline-grid', gridTemplateColumns: 'repeat(4, 1fr)', gridGap: '4px' }}>
         {nfts.length !== 0 && nfts.map((nft) => (
           <NFTTile
@@ -259,10 +261,12 @@ export default function MyAssets() {
           />
         ))}
       </div>
+      </div>
 
       
-      <div>
-        <Grid onAddToGrid={handleAddNFT} width={width} height={height}/>
+      <div className="flex justify-center" style={{marginBottom: 20}}>
+        
+        <Image src={artNFT} width="350" height="450" style={{align: 'center'}}/>
       </div>
       
       <div  className="flex justify-center">

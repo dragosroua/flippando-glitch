@@ -65,7 +65,9 @@ export default function Home() {
 
     const accountAddress = await signer.getAddress();
     console.log('Address:', accountAddress);
-    const balance = await provider.getBalance(accountAddress);
+
+    const balance = await contract.balanceOf(accountAddress);
+
     console.log('Balance:', balance);
     const balanceFormatted = ethers.utils.formatEther(balance, "ether");
     console.log('Account Balance:', balanceFormatted);
@@ -817,9 +819,9 @@ export default function Home() {
               </div>
             </div>
             }
-            {/*
+            
             <div>
-                
+            {/*    
             <div className={styles.mintButton}>
                 <button 
                 onClick={() => { mintTestNFT() }} 
@@ -827,7 +829,7 @@ export default function Home() {
                   Mint test NFTs
               </button>
             </div>
-
+            */}
             <div className={styles.mintButton}>
                 <button 
                 onClick={() => { mintSingleTestNFT() }} 
@@ -835,7 +837,7 @@ export default function Home() {
                   Mint single test NFT
               </button>
             </div>
-
+            {/*
             <div>
                 <a href="#" onClick={() => { createNewGame(64) }} >
                   <svg width="150" height="150">
@@ -846,7 +848,8 @@ export default function Home() {
               </div> 
             </div> 
 
-          */}
+            */}
+            </div>
           </main>
           
         </div>
