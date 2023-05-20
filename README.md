@@ -20,7 +20,7 @@ For this MVP, the following functionality is implemented, so these features can 
 - creation of composite NFTs by assembling other people solved boards (no UI, must be done by hand in React, but Solidity logic correctly implemented)
 - ERC20 token generation and rewards logic (locking/unlocking tokens on minting/assembling solved boards), very basic UI
 
-Note: zkEVM has difficulty with randomness, so parts of the game that reply on randomness may not work as expected yet. Alternatively, you can try out this deploy, on the Polygon Mumbai testnet.
+Note: zkEVM has difficulty with randomness, so parts of the game that rely on randomness may not work as expected yet. Alternatively, you can try out this deploy, on the Polygon Mumbai testnet.
 
 ```
 SVG deployed to: 0x9F4D011089e8A2e379609ff588e5AdC068bDf119
@@ -70,7 +70,7 @@ A lot of stuff related to:
 
 Should the project continues, there are quite a few hurdles that needs to be tackled:
 
-- evauate the go to market paths: deployemnt as a suite of contracts on an existing blockchain (Polygon, Avalanche), a separate consumer chain in the Cosmos ecosystem, a chainlet in the Saga ecosystem, a DAO, etc
+- evaluate the go to market paths: deployemnt as a suite of contracts on an existing blockchain (Polygon, Avalanche), a separate consumer chain in the Cosmos ecosystem, a chainlet in the Saga ecosystem, a DAO, etc
 - create detailed tokenomics for the ERC20 Flip token (right now there's a capped supply fo 1,000,000,000 tokens, and the only way to get one is by playing the game)
 - integrate Account Abstraction for sponsored gas fees (and not only)
 - improve randomness generation in Solidity and stabilize the UI
