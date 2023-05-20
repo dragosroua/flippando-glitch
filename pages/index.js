@@ -65,7 +65,7 @@ export default function Home() {
 
     const accountAddress = await signer.getAddress();
     console.log('Address:', accountAddress);
-    const balance = await provider.getBalance(accountAddress);
+    const balance = await contract.balanceOf(accountAddress);
     console.log('Balance:', balance);
     const balanceFormatted = ethers.utils.formatEther(balance, "ether");
     console.log('Account Balance:', balanceFormatted);
@@ -817,7 +817,7 @@ export default function Home() {
               </div>
             </div>
             }
-            {/*
+            {
             <div>
                 
             <div className={styles.mintButton}>
@@ -846,7 +846,7 @@ export default function Home() {
               </div> 
             </div> 
 
-          */}
+          }
           </main>
           
         </div>

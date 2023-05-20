@@ -42,7 +42,6 @@ const FlippandoNFTs = () => {
         // Create a contract instance
         const flippandoBundlerContract = new ethers.Contract(flippandoBundlerAddress, flippandoBundlerABI, provider);
 
-        
         // Get the balance of NFTs owned by the user
         const balance = await flippandoBundlerContract.balanceOf(userAddress);
         console.log('balance ' + balance)
