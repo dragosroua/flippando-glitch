@@ -17,8 +17,17 @@ For this MVP, the following functionality is implemented, so these features can 
 - game mechanics (complete)
 - game levels enforcement (complete)
 - on-chain NFT generation on finished game
-- creation of composite NFTs by assembling other people solved boards
-- ERC20 token generation and rewards logic (locking/unlocking tokens on minting/assembling solved boards)
+- creation of composite NFTs by assembling other people solved boards (no UI, must be done by hand in React, but Solidity logic correctly implemented)
+- ERC20 token generation and rewards logic (locking/unlocking tokens on minting/assembling solved boards), very basic UI
+
+Note: zkEVM has difficulty with randomness, so parts of the game that reply on randomness may not work as expected yet. Alternatively, you can try out this deploy, on the Polygon Mumbai testnet.
+
+```
+SVG deployed to: 0x9F4D011089e8A2e379609ff588e5AdC068bDf119
+FLIP deployed to: 0x4e284ebEeBf50373E18a2733CBC98065E7a6Ae6B
+FlippandoBundler deployed to: 0x24Ca291164797776106DB94D61AA0550FF91882E
+Flippando deployed to: 0xE5683450669a78017D48AF60f469ca8846e213cb
+```
 
 ## Inspiration
 
