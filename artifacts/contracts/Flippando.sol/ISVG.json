@@ -1,0 +1,35 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ISVG",
+  "sourceName": "contracts/Flippando.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint8[]",
+          "name": "solvedBoard",
+          "type": "uint8[]"
+        },
+        {
+          "internalType": "string",
+          "name": "gridType",
+          "type": "string"
+        }
+      ],
+      "name": "generateGrid",
+      "outputs": [
+        {
+          "internalType": "string",
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "stateMutability": "pure",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

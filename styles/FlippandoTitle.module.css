@@ -1,0 +1,26 @@
+/* components/FlippandoTitle.module.css */
+
+.text {
+    font-family: 'Gill Sans';
+    font-size: 80px;
+    font-weight: 200;
+    fill: black;
+  }
+  
+  .flippingP {
+    font-family: 'Gill Sans';
+    font-size: 18px;
+    font-weight: 400;
+    fill: black;
+    animation: flip 4s infinite 10s;
+  }
+  
+  @keyframes flip {
+    0%, 180% {
+      transform: scaleY(1);
+    }
+    50% {
+      transform: scaleY(-1);
+    }
+  }
+  

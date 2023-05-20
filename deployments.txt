@@ -1,0 +1,18 @@
+testNet:0xF115f9A272Fe9C6F2D527ce053bF749Dd12631c5
+localNet:0x5D37A51074F7339816793e890A08B8B55F98Fe82 
+
+/* testnet
+    module.exports = {
+      svgAddress: "0xB4Ea175674Fd32F3C51d0B20a7A0F090eb211d73",
+      svgProxyAddress: "0x61b3F9788E1e418cD1365e9AbA5Ec842d8A3B7CD",
+      flippandoAddress: "0x21e46243ce9C93643A53567Ecb996Bb41D9271Ec",
+      flippandoProxyAddress: "0x84beD6cE9002E60847708f3A17CFDB59e69d6F8a",
+    }*/
+
+/* local netw
+module.exports = {
+      svgAddress: "0x97CFb3Df638a372FC37f80C7575F1a222A110c65",
+      svgProxyAddress: "0xCfb2551b054d0C3B9e775C5c440db4a82c69a5b0",
+      flippandoAddress: "0xCB62f13b569112112fd3B907b47627453238b7c8",
+      flippandoProxyAddress: "0x724f885F8F2ACa6946c3b3bCE5872B223F107D6B",
+    }*/    

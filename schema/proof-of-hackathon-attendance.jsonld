@@ -1,0 +1,34 @@
+{
+    "@context": [
+      {
+        "@version": 1.1,
+        "@protected": true,
+        "id": "@id",
+        "type": "@type",
+        "ProofOfHackathonAttendance": {
+          "@id": "https://raw.githubusercontent.com/dragosroua/flippando-glitch/schema//proof-of-hackathon-attendance.jsonld#ProofOfHackathonAttendance",
+          "@context": {
+            "@version": 1.1,
+            "@protected": true,
+            "id": "@id",
+            "type": "@type",
+            "vocab": "https://github.com/dragosroua/flippando-glitch/schema//proof-of-hackathon-attendance-vocab.md#",
+            "xsd": "http://www.w3.org/2001/XMLSchema#",
+            "hackathonName": {
+              "@id": "vocab:hackathonName",
+              "@type": "xsd:string"
+            },
+            "hackathonDate": {
+                "@id": "vocab:hackathonDate",
+                "@type": "xsd:integere"
+            },
+            "hackathonRole": {
+                "@id": "vocab:hackathonRole",
+                "@type": "xsd:string"
+            }
+          }
+        }
+      }
+    ]
+  }
+  
