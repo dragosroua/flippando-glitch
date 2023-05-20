@@ -1,6 +1,6 @@
 # Deployment
 
-At the moment of writing, the game is deployed on Evmos testnet as a Solidity smart contract. Make sure you added the testnet to MetaMask and get some testnet tokens from the testnet faaucet. Refer to Evmos official docs for that. In the current implementation each flip is a separate transaction that must be approved in MetaMask, but the gas fees are very low.
+At the moment of writing, the game is deployed on a few testnets, including Evmos and Polygon. The deployment consists of a pool of smart contracts and some basic UI. Make sure you added the testnets to MetaMask and get some testnet tokens from the testnet faucet. Refer to the specific testnet docs for that. In the current implementation each flip is a separate transaction that must be approved in MetaMask, but the gas fees are very low.
 
 1. Clone the repo
 2. Run `npm run dev`. This should start the UI on `localhost:3000`.
