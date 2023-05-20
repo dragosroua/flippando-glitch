@@ -22,11 +22,13 @@ import Hexagram4 from './assets/hexagrams/hexagram4.svg';
 import Hexagram6 from './assets/hexagrams/hexagram6.svg';
 import {
   flippandoAddress,
-  flipAddress
+  flipAddress,
+  flippandoBundlerAddress
 } from '../config'
 
 import Flippando from '../artifacts/contracts/Flippando.sol/Flippando.json'
 import Flip from '../artifacts/contracts/Flip.sol/Flip.json'
+import FlippandoBundler from '../artifacts/contracts/FlippandoBundler.sol/FlippandoBundler.json'
 import SmallTile from '../components/SmallTile';
 
 export default function Home() {
@@ -39,6 +41,7 @@ export default function Home() {
   const [gameStatus, setGameStatus] = useState('Flippando is in an undefined state.')
   const [currentGameId, setCurrentGameId] = useState(null)
   const [flipBalance, setFlipBalance] = useState(0);
+  const [lockedFlipBalance, setLockedFlipBalance] = useState(0);
   const gameTypes = ["squareGrid", "dice", "hexagrams"];
   const gameLevels = [16, 64];
   const [gameType, setGameType] = useState("squareGrid");
@@ -85,31 +88,55 @@ export default function Home() {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
     const contract = new ethers.Contract(flippandoAddress, Flippando.abi, signer);
-
+    const flipContract = new ethers.Contract(flipAddress, Flip.abi, signer);
+    const flippandoBundlerContract = new ethers.Contract(flippandoBundlerAddress, FlippandoBundler.abi, signer);
+    const accountAddress = await signer.getAddress();
     // Get the current user's address
     const userAddress = await signer.getAddress();
-
+    var incrementedBalance = 0;
     try {
       const tokenIds = await contract.getUserNFTs({ from: userAddress });
-      const nftData = await Promise.all(
+      var nftData = [];
+      await Promise.all(
         tokenIds.map(async (tokenId) => {
           try {
-            const tokenUri = await contract.tokenURI(tokenId);
-            const response = await fetch(tokenUri);
-            const metadata = await response.text();
-            console.log("metadata ", metadata);
-            if (metadata !== undefined && metadata !== null) {
-              return {
-                tokenId: tokenId.toString(),
-                metadata: JSON.parse(metadata),
-              };
+            try {
+              const lockedBalanceInToken = await flipContract.getLockedBalance(accountAddress, tokenId);
+              const formattedLockedBalanceInToken = Math.round(lockedBalanceInToken) / 1000000000000000000;
+              incrementedBalance = lockedFlipBalance + formattedLockedBalanceInToken;
             }
+            catch {
+              console.error('Error while retrieving lockedFlipBalance:', error);
+            }
+            try {
+              const isPartOfArtwork = await flippandoBundlerContract.isPartOfArtwork(tokenId);
+              console.log("isPartOfArtwork ", isPartOfArtwork);
+              if (isPartOfArtwork === false) {
+                console.log("inside isPartOfArtwork check");
+                const tokenUri = await contract.tokenURI(tokenId);
+                const response = await fetch(tokenUri);
+                const metadata = await response.text();
+                console.log("metadata ", metadata);
+                if (metadata !== undefined && metadata !== null) {
+                  var nftObject = {
+                    tokenId: tokenId.toString(),
+                    metadata: JSON.parse(metadata),
+                  };
+                  nftData.push(nftObject);
+                }
+              }
+            }
+            catch {
+              console.error('Error while checking if nft is part of artwork:', error);
+            }
+            
           } catch (error) {
             console.error('Error while retrieving NFT metadata:', error);
-          }
+          }          
         })
       );
-    
+      setLockedFlipBalance(incrementedBalance);
+      console.log('nftData ', nftData);
       setNfts(nftData);
     
       if (nftData.length <= 16) {
@@ -775,7 +802,7 @@ export default function Home() {
                 Flip available: {flipBalance}
               </button>
               <button className='text-1xl font-bold gap-6'>
-                FLIP total: {flipBalance + nfts.length}
+                FLIP total: {lockedFlipBalance + flipBalance}
               </button>
               
             </div>
