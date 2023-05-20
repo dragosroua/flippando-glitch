@@ -20,7 +20,7 @@ module.exports = {
       polygonTestnet: {
         url: "https://rpc-mumbai.maticvigil.com",
         accounts: [process.env.privateKey],
-        chainId: 1442,
+        chainId: 80001,
       },
       polygonMainnet: {
         url: "https://rpc-mainnet.maticvigil.com",
