@@ -817,9 +817,9 @@ export default function Home() {
               </div>
             </div>
             }
-            {
+            
             <div>
-                
+            {/*    
             <div className={styles.mintButton}>
                 <button 
                 onClick={() => { mintTestNFT() }} 
@@ -827,7 +827,7 @@ export default function Home() {
                   Mint test NFTs
               </button>
             </div>
-
+            */}
             <div className={styles.mintButton}>
                 <button 
                 onClick={() => { mintSingleTestNFT() }} 
@@ -835,7 +835,7 @@ export default function Home() {
                   Mint single test NFT
               </button>
             </div>
-
+            {/*
             <div>
                 <a href="#" onClick={() => { createNewGame(64) }} >
                   <svg width="150" height="150">
@@ -846,7 +846,8 @@ export default function Home() {
               </div> 
             </div> 
 
-          }
+            */}
+            </div>
           </main>
           
         </div>

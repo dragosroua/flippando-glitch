@@ -5,14 +5,13 @@ import { useDrag, useDrop } from 'react-dnd';
 import SmallTile from '../components/SmallTile';
 import Grey from './assets/squares/grey.svg';
 import Image from 'next/image';
-import artNFT from './assets/image1.jpg';
+import artNFT from './assets/artNFT.jpg';
 import {
   flippandoAddress,
   flippandoBundlerAddress
 } from '../config'
 import Flippando from '../artifacts/contracts/Flippando.sol/Flippando.json'
 import FlippandoBundler from '../artifacts/contracts/FlippandoBundler.sol/FlippandoBundler.json'
-import { Punk } from './assets/image1.jpg';
 
 const ItemTypes = {
   NFT: 'nft',
