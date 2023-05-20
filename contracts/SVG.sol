@@ -204,7 +204,7 @@ contract SVG {
         return "#D9362A"; //bg-red-900
         } else if (key == 2) {
         return "#BE185D"; //bg-pink-700
-        } else if (key == 3) {7
+        } else if (key == 3) {
         return "EC1818"; //bg-red-500
         } else if (key == 4) {
         return "#F4AA24"; //bg-yellow-500
@@ -214,7 +214,7 @@ contract SVG {
         return "#F1F223"; //bg-yellow-100
         } else if (key == 7) {
         return "#A5DD0C"; //bg-green-300
-        } else if (key == 8 {
+        } else if (key == 8) {
         return "#37B400"; //bg-blue-300
         } else if (key == 9) {
         return "#98D0E9"; //bg-indigo-400
