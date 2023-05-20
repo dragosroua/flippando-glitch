@@ -66,12 +66,17 @@ export default function Home() {
     const accountAddress = await signer.getAddress();
     console.log('Address:', accountAddress);
 
-    const balance = await contract.balanceOf(accountAddress);
+    try {
+      const balance = await contract.balanceOf(accountAddress);
 
-    console.log('Balance:', balance);
-    const balanceFormatted = ethers.utils.formatEther(balance, "ether");
-    console.log('Account Balance:', balanceFormatted);
-    setFlipBalance(Math.round(balanceFormatted * 100) / 100);
+      console.log('Balance:', balance);
+      const balanceFormatted = ethers.utils.formatEther(balance, "ether");
+      console.log('Account Balance:', balanceFormatted);
+      setFlipBalance(Math.round(balanceFormatted * 100) / 100);
+    }
+    catch (error) {
+      console.log('Error:', error);
+    }
   
   }
 
@@ -85,37 +90,42 @@ export default function Home() {
     const userAddress = await signer.getAddress();
 
     try {
-    // Call the getUserNFTs function from the smart contract
-    const tokenIds = await contract.getUserNFTs({ from: userAddress });
-    // Retrieve tokenURI metadata for each NFT
-    const nftData = await Promise.all(
-      tokenIds.map(async (tokenId) => {
-        const tokenUri = await contract.tokenURI(tokenId);
-        const response = await fetch(tokenUri);
-        const metadata = await response.text();
-        console.log("metadata " + metadata)
-        if(metadata !== undefined && metadata !== null){
-          return {
-            tokenId: tokenId.toString(),
-            metadata: JSON.parse(metadata),
-          };
-        }
-        else {
-          console.log('error');
-        }
-      })
-      )
+      const tokenIds = await contract.getUserNFTs({ from: userAddress });
+      const nftData = await Promise.all(
+        tokenIds.map(async (tokenId) => {
+          try {
+            const tokenUri = await contract.tokenURI(tokenId);
+            const response = await fetch(tokenUri);
+            const metadata = await response.text();
+            console.log("metadata ", metadata);
+            if (metadata !== undefined && metadata !== null) {
+              return {
+                tokenId: tokenId.toString(),
+                metadata: JSON.parse(metadata),
+              };
+            }
+          } catch (error) {
+            console.error('Error while retrieving NFT metadata:', error);
+          }
+        })
+      );
+    
       setNfts(nftData);
-      if(nftData.length <= 16){
-        setGameLevel(gameLevels[0])  // boardSize 16
+    
+      if (nftData.length <= 16) {
+        setGameLevel(gameLevels[0]); // boardSize 16
+      } else if (nftData.length > 16) {
+        setGameLevel(gameLevels[1]); // boardSize 64
       }
-      else if(nftData.length > 16){
-        setGameLevel(gameLevels[1])  // boardSize 64
+    } catch (error) {
+      if (error.code === ethers.utils.Logger.errors.CALL_EXCEPTION) {
+        console.log('Error: Exception in the getUserNFTs contract function call');
+      } else {
+        console.error('Error:', error);
       }
     }
-    catch {
-      console.log('error, exception in the getUserNFTs contract function call')
-    }
+    
+    
   };
   // solidity enabled code
 

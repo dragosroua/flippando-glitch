@@ -108,7 +108,7 @@ contract Flippando is ERC721URIStorage, ERC721Enumerable {
         uint randomnumber2;
         
         randomnumber1 = (uint(keccak256(abi.encodePacked(block.timestamp, msg.sender))) % (games[id].board.length / 4)) + 1;
-        randomnumber2 = (uint(keccak256(abi.encodePacked(block.timestamp + 1064, msg.sender))) % (games[id].board.length / 4)) + 1;
+        randomnumber2 = (uint(keccak256(abi.encodePacked(block.timestamp + 1064, block.number, msg.sender))) % (games[id].board.length / 4)) + 1;
     
         if (games[id].board[boardPositions[0]] == 0){
             games[id].board[boardPositions[0]] = uint8(games[id].gameTiles[randomnumber1 - 1]);

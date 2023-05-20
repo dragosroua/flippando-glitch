@@ -205,7 +205,7 @@ contract SVG {
         } else if (key == 2) {
         return "#BE185D"; //bg-pink-700
         } else if (key == 3) {
-        return "EC1818"; //bg-red-500
+        return "#EC1818"; //bg-red-500
         } else if (key == 4) {
         return "#F4AA24"; //bg-yellow-500
         } else if (key == 5) {

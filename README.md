@@ -4,10 +4,10 @@ If you want to run the project go to [Deployment](docs/Deployment.md). More deta
 
 Smart contracts have been deployed on the zkEVM Testnet.
 
-SVG deployed to: 0x9b93BBBA15bcb2094AED645774D7E3aFCF74f340
-FLIP deployed to: 0xF3f6a994b982f7F5E67fDc0ef5ad248D7fFa6E7e
-FlippandoBundler deployed to: 0x786498f8d7936320B6ce1f2577dB9D75E9529DD1
-Flippando deployed to: 0x968459dCCD2762A0E5c5F0EE3ca2dBfb567fbd57
+SVG deployed to: 0xc121fD6Cc42A793Db3C66414AC9F2b3F06ed16dD
+FLIP deployed to: 0xcf46575fb12845DA6C10C38bd496b4b3FAfea039
+FlippandoBundler deployed to: 0xa24B7aFC13915842d28C3db7Ea900F802Ed683C6
+Flippando deployed to: 0xD462954Ed31B4b5959d1d0D067736B75FD396b9b
 ```
 
 ## Status
