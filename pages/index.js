@@ -21,10 +21,12 @@ import Hexagram2 from './assets/hexagrams/hexagram2.svg';
 import Hexagram4 from './assets/hexagrams/hexagram4.svg';
 import Hexagram6 from './assets/hexagrams/hexagram6.svg';
 import {
-  flippandoAddress
+  flippandoAddress,
+  flipAddress
 } from '../config'
 
 import Flippando from '../artifacts/contracts/Flippando.sol/Flippando.json'
+import Flip from '../artifacts/contracts/Flip.sol/Flip.json'
 import SmallTile from '../components/SmallTile';
 
 export default function Home() {
@@ -36,6 +38,7 @@ export default function Home() {
   const [uncoveredTileMatrix, setUncoveredTileMatrix] = useState(Array(4 * 4).fill(0))
   const [gameStatus, setGameStatus] = useState('Flippando is in an undefined state.')
   const [currentGameId, setCurrentGameId] = useState(null)
+  const [flipBalance, setFlipBalance] = useState(0);
   const gameTypes = ["squareGrid", "dice", "hexagrams"];
   const gameLevels = [16, 64];
   const [gameType, setGameType] = useState("squareGrid");
@@ -51,7 +54,24 @@ export default function Home() {
 
   useEffect(() => {
       fetchNFTs();
+      fetchUserBalances();
   }, []);
+
+
+  const fetchUserBalances = async () => {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(flipAddress, Flip.abi, signer);
+
+    const accountAddress = await signer.getAddress();
+    console.log('Address:', accountAddress);
+    const balance = await provider.getBalance(accountAddress);
+    console.log('Balance:', balance);
+    const balanceFormatted = ethers.utils.formatEther(balance, "ether");
+    console.log('Account Balance:', balanceFormatted);
+    setFlipBalance(Math.round(balanceFormatted * 100) / 100);
+  
+  }
 
   const fetchNFTs = async () => {
     // Connect to the Ethereum network
@@ -268,6 +288,7 @@ export default function Home() {
         .then( (result) => { 
           console.log('wait result ' + JSON.stringify(result))
             fetchNFTs();
+            fetchUserBalances();
             setPositions([])
         })
         .catch(error => { 
@@ -313,6 +334,7 @@ export default function Home() {
         .then( (result) => {
           console.log('wait test result ' + JSON.stringify(result))
             fetchNFTs();
+            fetchUserBalances();
         })
         .catch(error => { 
           console.log('mint test error after result ' + JSON.stringify(error, null, 2))
@@ -355,6 +377,7 @@ export default function Home() {
         .then( (result) => {
           console.log('wait test result ' + JSON.stringify(result))
             fetchNFTs();
+            fetchUserBalances();
         })
         .catch(error => { 
           console.log('mint test error after result ' + JSON.stringify(error, null, 2))
@@ -733,6 +756,18 @@ export default function Home() {
 
         <div className="col-span-3">
           <main className={styles.main}>
+            <div className='mb-4'>
+            <div
+              className="inline-grid rounded-md ">
+              <button className='text-1xl font-bold gap-6' >
+                Flip available: {flipBalance}
+              </button>
+              <button className='text-1xl font-bold gap-6'>
+                FLIP total: {flipBalance + nfts.length}
+              </button>
+              
+            </div>
+            </div>
             <div className='mb-4'>
               {gameStatus}
             </div>
