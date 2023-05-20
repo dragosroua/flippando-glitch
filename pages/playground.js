@@ -5,9 +5,11 @@ import { useDrag, useDrop } from 'react-dnd';
 import SmallTile from '../components/SmallTile';
 import Grey from './assets/squares/grey.svg';
 import {
-  flippandoAddress
+  flippandoAddress,
+  flippandoBundlerAddress
 } from '../config'
 import Flippando from '../artifacts/contracts/Flippando.sol/Flippando.json'
+import FlippandoBundler from '../artifacts/contracts/FlippandoBundler.sol/FlippandoBundler.json'
 
 const ItemTypes = {
   NFT: 'nft',
@@ -225,7 +227,7 @@ export default function MyAssets() {
       })
     })
 
-    const txResponse  = await flippandoContract.makeArt(2,2,[9,10,11,12])
+    const txResponse  = await flippandoContract.makeArt(2,2,[13,14,15,16])
     .then( (result) => 
       { 
         console.log('make art txResponse ' + JSON.stringify(result))
