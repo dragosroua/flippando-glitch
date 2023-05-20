@@ -201,38 +201,39 @@ contract SVG {
 
     function getColorFromKey(uint8 key) private pure returns(string memory) {
         if (key == 1) {
-        return "#B71C1C"; //bg-red-900
+        return "#D9362A"; //bg-red-900
         } else if (key == 2) {
         return "#BE185D"; //bg-pink-700
-        } else if (key == 3) {
-        return "#F44336"; //bg-red-500
+        } else if (key == 3) {7
+        return "EC1818"; //bg-red-500
         } else if (key == 4) {
-        return "#EAB308"; //bg-yellow-500
+        return "#F4AA24"; //bg-yellow-500
         } else if (key == 5) {
-        return "#FDE047"; //bg-yellow-300
+        return "#F4D424"; //bg-yellow-300
         } else if (key == 6) {
-        return "#FFF9C4"; //bg-yellow-100
+        return "#F1F223"; //bg-yellow-100
         } else if (key == 7) {
-        return "#86EFAC"; //bg-green-300
-        } else if (key == 8) {
-        return "#93C5FD"; //bg-blue-300
+        return "#A5DD0C"; //bg-green-300
+        } else if (key == 8 {
+        return "#37B400"; //bg-blue-300
         } else if (key == 9) {
-        return "#818CF8"; //bg-indigo-400
+        return "#98D0E9"; //bg-indigo-400
         }  else if (key == 10) {
-        return "#A3E635"; //bg-lime-400
+        return "#3131FD"; //bg-lime-400
         } else if (key == 11) {
-        return "#4CAF50"; //bg-green-500
+        return "#1D2C85"; //bg-green-500
         } else if (key == 12) {
-        return "#4ADE80"; //bg-green-400
+        return "#F2F2F2"; //bg-green-400
         }else if (key == 13) {
-        return "#A5D6A7"; //bg-green-200
+        return "#1A1A1A"; //bg-green-200
         } else if (key == 14) {
-        return "#A5D6A7"; //bg-blue-100
+        return "#71842F"; //bg-blue-100
         } else if (key == 15) {
-        return "#0D47A1"; //bg-blue-900
+        return "#90572F"; //bg-blue-900
         } else if (key == 16) {
-        return "#2563EB"; //bg-blue-600
-        }else {
+        return "#8316C0"; //bg-blue-600
+        }
+else {
         revert("Invalid color key");
         }
     }
