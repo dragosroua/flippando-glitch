@@ -12,7 +12,7 @@ For this MVP, the following functionality is implemented, so these features can 
 
 ## Inspiration
 
-The combination between EVM and Cosmos-sdk made possible a whole range of projects which weren't possible before. Games with significant logic on-chain can now be played at a much higher speed, unlocking new opportunities.
+The evolution of EVM and integration with fast finality blockchains made possible a whole range of projects which weren't possible before. Games with significant logic on-chain can now be played at a much higher speed, unlocking new opportunities.
 
 ## What it does
 
