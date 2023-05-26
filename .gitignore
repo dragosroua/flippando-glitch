@@ -39,3 +39,4 @@ typechain
 
 #Hardhat files
 cache
+/Dockerfile
