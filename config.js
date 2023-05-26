@@ -1,7 +1,7 @@
 
     module.exports = {
-      svgAddress: "0xc121fD6Cc42A793Db3C66414AC9F2b3F06ed16dD",
-      flippandoAddress: "0xD462954Ed31B4b5959d1d0D067736B75FD396b9b",
-      flipAddress: "0xcf46575fb12845DA6C10C38bd496b4b3FAfea039",
-      flippandoBundlerAddress: "0xa24B7aFC13915842d28C3db7Ea900F802Ed683C6",
+      svgAddress: "0x653608ecc8eE88505455788AC884D9F8c7dD1FeF",
+      flippandoAddress: "0x075a3FaF67901072A72b0a26062b74038C2A29b3",
+      flipAddress: "0xB8c8BF28757cdB2B5FaF1F1C783cdFea35C580d7",
+      flippandoBundlerAddress: "0x858E7E6F55e20DA024e9ef41D2fECdD9D0eE4969",
     }

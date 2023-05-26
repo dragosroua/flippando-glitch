@@ -46,6 +46,16 @@ module.exports = {
         url: "http://localhost:8545/",
         chainId: 9000,
         accounts: [process.env.privateKey]
+      },
+      auroraMain: {
+        url: "	https://mainnet.aurora.dev",
+        chainId: 1313161554,
+        accounts: [process.env.privateKey]
+      },
+      auroraTestnet: {
+        url: "	https://testnet.aurora.dev",
+        chainId: 1313161555,
+        accounts: [process.env.privateKey]
       }
   },
   solidity: {

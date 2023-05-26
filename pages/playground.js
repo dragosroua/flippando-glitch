@@ -229,7 +229,7 @@ export default function MyAssets() {
       })
     })
 
-    const txResponse  = await flippandoContract.makeArt(2,2,[13,14,15,16])
+    const txResponse  = await flippandoContract.makeArt(2,2,[1,3,2,4])
     .then( (result) => 
       { 
         console.log('make art txResponse ' + JSON.stringify(result))
